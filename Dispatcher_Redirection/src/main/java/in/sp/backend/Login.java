@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class Login extends HttpServlet {
@@ -21,6 +22,11 @@ public class Login extends HttpServlet {
 		PrintWriter out = res.getWriter();
 
 		if (user.equals("AB Ryan") && pass.equals("389141")) {
+			
+			
+			HttpSession hs = req.getSession();
+			hs.setAttribute("name_key", "AB Ryan");
+			
 
 			RequestDispatcher rd = req.getRequestDispatcher("/profile.jsp");
 			rd.forward(req, res);

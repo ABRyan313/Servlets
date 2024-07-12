@@ -7,7 +7,11 @@
 <title>AB</title>
 </head>
 <body>
-         <h1>Welcome</h1>
+         <%
+                String myName = (String)session.getAttribute("name_key");
+         %>
+         
+         <h3>Welcome <%= myName %></h3>
          <form action="profile" method = "get">
          <input type = "text" name = "search1" placeholder = "Search here"> <br></br>
          <input type = "submit" name = "search" > <br></br>
